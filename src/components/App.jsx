@@ -1,5 +1,5 @@
 import Home from './Home'
-import PromotionVideo from './assets/promotion_video.webm'
+import PromotionVideo from '../assets/promotion_video.webm'
 import Navigation from './Navigation'
 import { Routes, Route } from 'react-router-dom'
 
