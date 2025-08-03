@@ -22,7 +22,6 @@ function ContactForm() {
         e.preventDefault();
         setIsSubmitting(true);
         
-        // Simulate form submission
         try {
             await new Promise(resolve => setTimeout(resolve, 1500));
             setSubmitStatus('success');
