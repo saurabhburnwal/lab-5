@@ -24,7 +24,6 @@ function Modal({ isOpen, onClose, title, children, size = 'md', showCloseButton 
       role="dialog"
       aria-modal="true"
       onMouseDown={(e) => {
-        // Close when clicking the backdrop
         if (e.target === e.currentTarget) onClose?.();
       }}
     >
