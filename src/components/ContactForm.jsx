@@ -146,7 +146,7 @@ function ContactForm() {
                             <p>24h Response</p>
                         </div>
                         <div>
-                            <i className="fa-solid fa-shield-check text-green-500"></i>
+                            <i className="fa-solid fa-shield text-green-500"></i>
                             <p>Secure & Private</p>
                         </div>
                         <div>
