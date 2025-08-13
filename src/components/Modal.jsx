@@ -1,6 +1,7 @@
-import { useEffect } from 'react';
+import { useEffect, useId } from 'react';
 
 function Modal({ isOpen, onClose, title, children, size = 'md', showCloseButton = true }) {
+  const titleId = useId();
   useEffect(() => {
     if (!isOpen) return;
     const onKeyDown = (e) => {
@@ -12,27 +13,22 @@ function Modal({ isOpen, onClose, title, children, size = 'md', showCloseButton 
 
   if (!isOpen) return null;
 
-  const sizes = {
-    sm: 'max-w-md',
-    md: 'max-w-2xl',
-    lg: 'max-w-4xl',
-  };
-
   return (
-    <div
+    <section
       className="fixed inset-0 z-50 flex items-center justify-center"
       role="dialog"
       aria-modal="true"
+      aria-labelledby={title ? titleId : undefined}
       onMouseDown={(e) => {
         if (e.target === e.currentTarget) onClose?.();
       }}
     >
-      <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
+      <section aria-hidden="true" className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
       <section
-        className={`relative z-10 w-full ${sizes[size]} mx-4 bg-gradient-to-br from-blue-500/20 via-pink-500/20 to-purple-600/20 border border-white/20 rounded-lg shadow-2xl text-white`}
+        className={`relative z-10 w-full max-w-2xl mx-4 bg-gradient-to-br from-blue-500/20 via-pink-500/20 to-purple-600/20 border border-white/20 rounded-lg shadow-2xl text-white`}
       >
         <header className="flex items-center justify-between px-5 py-4 border-b border-white/10">
-          <h3 className="text-lg md:text-xl font-semibold">{title}</h3>
+          <h3 id={titleId} className="text-lg md:text-xl font-semibold">{title}</h3>
           {showCloseButton && (
             <button
               aria-label="Close"
@@ -43,9 +39,9 @@ function Modal({ isOpen, onClose, title, children, size = 'md', showCloseButton 
             </button>
           )}
         </header>
-        <div className="px-5 py-4">{children}</div>
+        <section className="px-5 py-4">{children}</section>
       </section>
-    </div>
+    </section>
   );
 }
 

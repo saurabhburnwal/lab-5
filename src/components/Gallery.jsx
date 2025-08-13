@@ -165,7 +165,6 @@ function Gallery() {
                 isOpen={!!selected}
                 onClose={() => setSelected(null)}
                 title={selected ? selected.name : ''}
-                size="md"
             >
                 {selected && (
                     <div className="space-y-3">
