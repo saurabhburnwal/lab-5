@@ -1,6 +1,6 @@
 import { useEffect, useId } from 'react';
 
-function Modal({ isOpen, onClose, title, children, size = 'md', showCloseButton = true }) {
+function Modal({ isOpen, onClose, title, children, showCloseButton = true }) {
   const titleId = useId();
   useEffect(() => {
     if (!isOpen) return;
@@ -28,7 +28,7 @@ function Modal({ isOpen, onClose, title, children, size = 'md', showCloseButton 
         className={`relative z-10 w-full max-w-2xl mx-4 bg-gradient-to-br from-blue-500/20 via-pink-500/20 to-purple-600/20 border border-white/20 rounded-lg shadow-2xl text-white`}
       >
         <header className="flex items-center justify-between px-5 py-4 border-b border-white/10">
-          <h3 id={titleId} className="text-lg md:text-xl font-semibold">{title}</h3>
+          <h3 id={titleId} className="text-lg font-semibold">{title}</h3>
           {showCloseButton && (
             <button
               aria-label="Close"
